@@ -6,7 +6,7 @@ public class HelloJNI {
 
        System.out.printf("\njava.library.path=%s\n\n", System.getProperty("java.library.path"));
        // System.loadLibrary("HelloJNI");
-   	   System.load(args[0]);
+       System.load(args[0]);
        new HelloJNI().sayHello();  
    }
 }
