@@ -10,7 +10,7 @@ echo "Creating C header"
 javah HelloJNI
 
 echo "Compiling shared native library"
-gcc -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -shared -o HelloJNI.dylib HelloJNI.c
+g++ -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -shared -o HelloJNI.dylib HelloJNI.cpp
 
 echo "Running native code from Java"
 java HelloJNI `pwd`/HelloJNI.dylib
