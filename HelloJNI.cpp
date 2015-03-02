@@ -5,10 +5,14 @@
 
 using namespace std;
  
-JNIEXPORT jstring JNICALL Java_HelloJNI_getNativeString(JNIEnv *env, jobject thisObj) {
-   cout << "In C++ - enter string to be printed by Scala: ";
-   string in;
-   getline(cin, in);
-   cout << endl << "In C++ - string entered was " << in << endl;
-   return env->NewStringUTF((char*)in.c_str());
+JNIEXPORT jstring JNICALL Java_HelloJNI_getNativeString(JNIEnv *env, jobject thisObj, jstring scalaStr) {
+  
+  const char *str = env->GetStringUTFChars(scalaStr, 0);
+  cout << "In C++ - Scala sent: " << str << endl;
+  env->ReleaseStringUTFChars(scalaStr, str);
+
+  cout << "In C++ - Enter string to be sent to Scala: ";
+  string in;
+  getline(cin, in);
+  return env->NewStringUTF((char*)in.c_str());
 }
