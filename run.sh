@@ -7,7 +7,6 @@ export SCALA_CP=$SCALA_LIB_HOME/scala-library.jar:$SCALA_LIB_HOME/scala-reflect.
 
 echo "Compiling Scala class file"
 scalac HelloJNI.scala
-#javac HelloJNI.java 
 
 echo "Creating C header"
 javah -cp $SCALA_CP:. HelloJNI
