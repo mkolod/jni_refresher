@@ -1,6 +1,8 @@
 #include <jni.h>
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <vector>
 #include "HelloJNI.h"
 
 using namespace std;
@@ -16,7 +18,7 @@ JNIEXPORT jstring JNICALL Java_HelloJNI_getNativeString(JNIEnv *env, jobject thi
   cout << "In C++ - Enter string to be sent to Scala: ";
   string in;
   getline(cin, in);
-  return env->NewStringUTF((char*)in.c_str());
+  return env->NewStringUTF((char*) in.c_str());
 }
 
 JNIEXPORT jboolean JNICALL Java_HelloJNI_getNativeBoolean(JNIEnv *env, jobject thisObj, jboolean scalaBool) {
@@ -74,3 +76,31 @@ JNIEXPORT jdouble JNICALL Java_HelloJNI_getNativeDouble(JNIEnv *env, jobject thi
   cout << "In C++ - received doubla from Scala: " << nativeDouble << endl;
   return nativeDouble;
 }
+
+string dblVecToString(vector<double> vec) {
+
+  ostringstream oss;
+
+  if (!vec.empty()) {
+
+    oss << "[";
+    copy(vec.begin(), vec.end()-1, ostream_iterator<double>(oss, ", ")); 
+    oss << vec.back();
+    oss << "]";
+  }
+
+  return oss.str();
+}
+
+JNIEXPORT jdoubleArray JNICALL Java_HelloJNI_getNativeDoubleArray(JNIEnv *env, jobject thisObj, jdoubleArray scalaDoubleArray) {
+
+  jsize size = env->GetArrayLength( scalaDoubleArray );
+  vector<double> vec( (int) size );
+  env->GetDoubleArrayRegion( scalaDoubleArray, 0, size, &vec[0] );
+
+  cout << "In C++ - received double array from Scala: " << dblVecToString(vec) << endl;
+  return scalaDoubleArray;
+}
+
+
+

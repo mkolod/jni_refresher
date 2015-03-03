@@ -18,9 +18,13 @@ class HelloJNI {
 
   // native representation: modified UTF-8 (http://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html)
   @native def getNativeString(scalaStr: String): String
+
+  @native def getNativeDoubleArray(scalaArr: Array[Double]): Array[Double]
 }
 
 object HelloJNI extends App {
+
+  import java.util.Arrays
 
   println(s"\njava.library.path=${System.getProperty("java.library.path")}\n\n")
   System.load(args(0))
@@ -62,6 +66,10 @@ object HelloJNI extends App {
   val double = 1.0D
   println(s"""In Scala: sending double $double to C++""")
   println(s"In Scala: C++ responded with doublt value of ${helloJNI.getNativeDouble(double)}\n")
+
+  val doubleArr = Array[Double](1.0D, 2.0D, 3.0D)
+  println(s"""In Scala: sending double array ${Arrays.toString(doubleArr)} to C++""")
+  println(s"In Scala: C++ responded with double value of ${Arrays.toString(helloJNI.getNativeDoubleArray(doubleArr))}\n")
 }
 
 
