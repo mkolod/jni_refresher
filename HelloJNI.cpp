@@ -80,10 +80,12 @@ JNIEXPORT jdouble JNICALL Java_HelloJNI_getNativeDouble(JNIEnv* const env, jobje
 string dblVecToString(vector<double> const vec) {
 
   ostringstream oss;
+  oss.precision(1);
 
   if (!vec.empty()) {
 
     oss << "[";
+    oss << fixed;
     copy(vec.begin(), vec.end()-1, ostream_iterator<double>(oss, ", ")); 
     oss << vec.back() << "]";
   }
