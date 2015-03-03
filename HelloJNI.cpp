@@ -85,8 +85,7 @@ string dblVecToString(vector<double> vec) {
 
     oss << "[";
     copy(vec.begin(), vec.end()-1, ostream_iterator<double>(oss, ", ")); 
-    oss << vec.back();
-    oss << "]";
+    oss << vec.back() << "]";
   }
 
   return oss.str();
