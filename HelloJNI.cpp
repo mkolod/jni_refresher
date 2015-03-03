@@ -11,7 +11,7 @@ typedef unsigned char BYTE;
  
 JNIEXPORT jstring JNICALL Java_HelloJNI_getNativeString(JNIEnv* const env, jobject const thisObj, jstring const scalaStr) {
   
-  const char *str = env->GetStringUTFChars(scalaStr, 0);
+  const char* const str = env->GetStringUTFChars(scalaStr, 0);
   cout << "In C++ - Scala sent: " << str << endl;
   env->ReleaseStringUTFChars(scalaStr, str);
 
