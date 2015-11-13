@@ -27,7 +27,8 @@ object HelloJNI extends App {
   import java.util.Arrays
 
   println(s"\njava.library.path=${System.getProperty("java.library.path")}\n\n")
-  System.load(args(0))
+  // System.load(args(0))
+  System.loadLibrary("hello")
 
   val helloJNI = new HelloJNI()
 

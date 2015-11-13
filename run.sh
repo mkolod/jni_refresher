@@ -12,7 +12,8 @@ echo "Creating C header"
 javah -cp $SCALA_CP:. HelloJNI
 
 echo "Compiling shared native library"
-g++ -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -shared -o HelloJNI.dylib HelloJNI.cpp
+g++ -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -shared -o libhello.dylib HelloJNI.cpp
 
 echo "Running native code from Scala"
-scala HelloJNI `pwd`/HelloJNI.dylib
+scala HelloJNI -Djava.library.path=`pwd`
+# `pwd`/HelloJNI.dylib
