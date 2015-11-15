@@ -18,3 +18,5 @@ For comparisons between JNI and JNA, see [here](http://blog.caplin.com/2014/12/0
 For better C++ (not just C) support, it may be worth trying out [JavaCpp](https://github.com/bytedeco/javacpp) instead of writing JNI directly.
 
 Check out [this post](http://www.ibm.com/developerworks/library/j-jni/) for JNI best practices (warning: it's a bit dated (2009), but JNI hasn't evolved much in the last few years, so it's probably OK).
+
+Specific info about Java and native exception handling in JNI code can be found [here](http://www.developer.com/java/data/exception-handling-in-jni.html).
