@@ -7,3 +7,7 @@ Also, note that this assumes that the JNI methods will be applied as instance me
 ### TODO:
 
 Explore [JNI SBT plugin](https://github.com/joprice/sbt-jni) to conver this into an SBT build, with proper package conventions, without the shell script, etc.
+
+### Notes:
+
+If you'd like to learn more about JNI, check out [this tutorial](http://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html) (Java only, but you should get the idea for Scala).
