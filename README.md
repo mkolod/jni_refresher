@@ -11,3 +11,7 @@ Explore [JNI SBT plugin](https://github.com/joprice/sbt-jni) to conver this into
 ### Notes:
 
 If you'd like to learn more about JNI, check out [this tutorial](http://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html) (Java only, but you should get the idea for Scala).
+
+For comparisons between JNI and JNA, see [here](http://blog.caplin.com/2014/12/01/jnajni/). I agree with the author of the JNI vs. JNA blog post that JNI is actually easier for non-trivial use cases, and it's faster. 
+
+For better C++ (not just C) support, it may be worth trying out [JavaCpp](https://github.com/bytedeco/javacpp) instead of writing JNI directly.
