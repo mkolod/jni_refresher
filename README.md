@@ -14,3 +14,5 @@ If you'd like to learn more about JNI, check out [this tutorial](http://www3.ntu
 For comparisons between JNI and JNA, see [here](http://blog.caplin.com/2014/12/01/jnajni/). I agree with the author of the JNI vs. JNA blog post that JNI is actually easier for non-trivial use cases, and it's faster. 
 
 For better C++ (not just C) support, it may be worth trying out [JavaCpp](https://github.com/bytedeco/javacpp) instead of writing JNI directly.
+
+Check out [this post](http://www.ibm.com/developerworks/library/j-jni/) for JNI best practices (warning: it's a bit dated (2009), but JNI hasn't evolved much in the last few years, so it's probably OK).
