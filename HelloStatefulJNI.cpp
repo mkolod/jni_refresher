@@ -1,13 +1,8 @@
 #include <jni.h>
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
+#include <cstdlib>
 #include "HelloStatefulJNI.h"
 
-using namespace std;
-
-JNIEXPORT jlong JNICALL Java_HelloStatefulJNI_malloc(JNIEnv * const env, jobject const thisObj, jint const numEl) {
+JNIEXPORT jlong JNICALL Java_HelloStatefulJNI_malloc(JNIEnv * const env, jobject const thisObj, const jint numEl) {
 	int * ptr = (int *) malloc(numEl * sizeof(int));
 	return (jlong) ptr;
 }
