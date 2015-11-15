@@ -14,11 +14,14 @@ object HelloStatefulJNI extends App {
 
   val jni = new HelloStatefulJNI()
   val ptr = jni.malloc(1000)
-  val pos = 10
-  jni.putInt(ptr, pos, 42)
-  println(s"Expected to get 42, got ${jni.getInt(ptr, pos)}")
-  jni.free(ptr)
-
+  if (ptr == 0L) {
+  	println("Native memory could not be allocated")
+  } else {
+    val pos = 10
+    jni.putInt(ptr, pos, 42)
+    println(s"Expected to get 42, got ${jni.getInt(ptr, pos)}")
+    jni.free(ptr)
+  }
 }
 
 
