@@ -8,11 +8,8 @@ export SCALA_CP=$SCALA_LIB_HOME/scala-library.jar:$SCALA_LIB_HOME/scala-reflect.
 echo "Compiling Scala class file"
 scalac HelloAssembly.scala
 
-# echo "Creating C header"
-# javah -cp $SCALA_CP:. HelloAssembly
-
 echo "Compiling shared native library"
-gcc -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -shared -o libhelloassembly.dylib hello_asm.S
+gcc -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -shared -o libhelloassembly.dylib hello_asm.s
 
 echo "Running native code from Scala"
 scala HelloAssembly -Djava.library.path=`pwd`
