@@ -6,9 +6,9 @@ str:
   .asciz "Hello from assembly!\n"
 
 .section __TEXT,__text
-.globl _helloAsm
+.globl _Java_HelloAssembly_helloAssembly
 #_main
-_helloAsm:
+_Java_HelloAssembly_helloAssembly:
   movl $0x2000004, %eax           # preparing system call 4
   movl $1, %edi                   # STDOUT file descriptor is 1
   movq str@GOTPCREL(%rip), %rsi   # The value to print
