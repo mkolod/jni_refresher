@@ -11,7 +11,11 @@ object HelloAssembly extends App {
 
   val jni = new HelloAssembly()
   println("\nCalling assembly from Scala")
+  try {
   jni.helloAssembly()
+  } catch {
+  	case x: Throwable => 
+  }
   println("Back in Scala\n")
 }
 
